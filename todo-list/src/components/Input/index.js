@@ -1,7 +1,13 @@
 import React from "react";
+import Button from "./button";
 
 function Input(props) {
-  return <input type="text"></input>;
+  return (
+    <form>
+      <input className="todoinput" type="text"></input>
+      <Button />
+    </form>
+  );
 }
 
 export default Input;
