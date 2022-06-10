@@ -1,7 +1,11 @@
 import React from "react";
 
-const Button = () => {
-  return <button className="addbtn">Add to list</button>;
+const Button = (send) => {
+  return (
+    <button className="addbtn" onClick={send.onClick}>
+      Add to list
+    </button>
+  );
 };
 
 export default Button;
