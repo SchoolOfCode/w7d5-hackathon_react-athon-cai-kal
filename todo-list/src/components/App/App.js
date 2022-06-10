@@ -1,24 +1,27 @@
 import React from "react";
 import "../../index.css";
-import List from "../List";
+// import List from "../List";
+import ListItem from "../List/listitem.js";
 import Input from "../Input";
 import { useState } from "react";
 import Button from "../Input/button.js";
 
 function App() {
-  const [task, setTask] = useState("");
+  const [task, setTask] = useState([{ text: "Learn about React" }]); // task = todo
 
-  const submitTask = (e) => {
-    const submit = e.target.value;
-    setTask(submit);
-  };
+  // const submitTask = (e) => {
+  //   const submit = e.target.value;
+  //   setTask(submit);
+  // };
 
   return (
     <div className="App">
       <h1>To Do List</h1>
-      <Input value={task} />
-      <Button onClick={submitTask} />
-      <List />
+      <Input />
+      <Button />
+      {task.map((list, index) => (
+        <ListItem key={index} index={index} list={list} />
+      ))}
     </div>
   );
 }
