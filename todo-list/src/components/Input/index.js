@@ -1,11 +1,24 @@
 import React from "react";
+import Button from "./button";
 
-function Input(props) {
+function Input({ addTodo }) {
+  const [value, setValue] = React.useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!value) return;
+    addTodo(value);
+    setValue("");
+  };
   return (
-    <form>
-      <input className="todoinput" type="text">
-        {props.value}
-      </input>
+    <form onSubmit={handleSubmit}>
+      <input
+        className="todoinput"
+        type="text"
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+      />
+      <Button />
     </form>
   );
 }
